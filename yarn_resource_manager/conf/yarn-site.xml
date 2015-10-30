@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<configuration>
+  <property>
+    <name>yarn.resourcemanager.scheduler.class</name>
+    <value>org.apache.hadoop.yarn.server.resourcemanager.scheduler.fifo.FifoScheduler</value>
+  </property>
+  <property>
+    <name>yarn.nodemanager.vmem-pmem-ratio</name>
+    <value>10</value>
+  </property>
+  <property>
+      <name>yarn.scheduler.minimum-allocation-mb</name>
+      <value>128</value>
+      <description>Minimum limit of memory to allocate to each container request at the Resource Manager.</description>
+  </property>
+  <property>
+    <name>yarn.scheduler.maximum-allocation-mb</name>
+    <value>2048</value>
+    <description>Maximum limit of memory to allocate to each container request at the Resource Manager.</description>
+  </property>
+  <property>
+    <name>yarn.resourcemanager.recovery.enabled</name>
+    <value>true</value>
+    <description>Enables RM state recovery when it restarts.</description>
+  </property>
+  <property>
+    <name>yarn.resourcemanager.store.class</name>
+    <value>org.apache.hadoop.yarn.server.resourcemanager.recovery.ZKRMStateStore</value>
+    <description>The state store implementation to use.  We pick ZooKeeper.</description>
+  </property>
+  <property>
+    <name>yarn.resourcemanager.zk-address</name>
+    <value>${ZOOKEEPER_ADDRESS}</value>
+    <description>ZK ensemble to store the state at.</description>
+  </property>
+  <property>
+    <name>yarn.resourcemanager.zk-state-store.parent-path</name>
+    <value>${ZOOKEEPER_ROOT}</value>
+    <description>Path within ZK to store the state at.</description>
+  </property>
+  <property>
+    <name>yarn.resourcemanager.zk-timeout-ms</name>
+    <value>30000</value>
+    <description>ZK session timeout in miliseconds.</description>
+  </property>
+  <!--
+  <property>
+    <name>yarn.scheduler.minimum-allocation-vcores</name>
+    <value>1</value>
+    <description>The minimum allocation for every container request at the RM, in terms of virtual CPU cores. Requests lower than this won't take effect, and the specified value will get allocated the minimum.</description>
+  </property>
+  <property>
+    <name>yarn.scheduler.maximum-allocation-vcores</name>
+    <value>20</value>
+    <description>The maximum allocation for every container request at the RM, in terms of virtual CPU cores. Requests higher than this won't take effect, and will get capped to this value.</description>
+  </property>
+  <property>
+    <name>yarn.nodemanager.resource.memory-mb</name>
+    <value>307200</value>
+    <description>Physical memory, in MB, to be made available to running containers</description>
+  </property>
+  <property>
+    <name>yarn.nodemanager.resource.cpu-vcores</name>
+    <value>30</value>
+    <description>Number of CPU cores that can be allocated for containers.</description>
+  </property>
+  -->
+</configuration>
